@@ -1,0 +1,35 @@
+{
+    "name": "homework_4",
+    "version": "1.0.0",
+    "description": "Homework of JS Professional courses in school 'Otus'",
+    "scripts": {
+        "build": "tsc",
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:hobitosik/Otus_JS_Developer_Professional.git"
+    },
+    "keywords": [
+        "JS",
+        "JavaScript",
+        "TS",
+        "TypeScript"
+    ],
+    "author": "El'vina",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hobitosik/Otus_JS_Developer_Professional/issues"
+    },
+    "homepage": "https://github.com/hobitosik/Otus_JS_Developer_Professional#readme",
+    "dependencies": {
+        "typescript": "3.9.3"
+    },
+    "devDependencies": {
+        "@types/node": "14.0.10",
+        "nodemon": "^2.0.6",
+        "ts-node": "8.10.2",
+        "tslint": "^6.1.3"
+    }
+}

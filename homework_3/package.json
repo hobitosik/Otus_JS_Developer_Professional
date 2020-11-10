@@ -1,0 +1,40 @@
+{
+    "name": "homework_3",
+    "version": "1.0.0",
+    "description": "Homework of JS Professional courses in school 'Otus'",
+    "scripts": {
+        "test": "jest",
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:hobitosik/Otus_JS_Developer_Professional.git"
+    },
+    "keywords": [
+        "JS",
+        "JavaScript",
+        "Lit-HTML",
+        "Webpack",
+        "Web Components"
+    ],
+    "author": "El'vina",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hobitosik/Otus_JS_Developer_Professional/issues"
+    },
+    "homepage": "https://github.com/hobitosik/Otus_JS_Developer_Professional#readme",
+    "dependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^8.1.0",
+        "babel-preset-env": "^1.7.0",
+        "webpack": "^5.3.2"
+    },
+    "devDependencies": {
+        "jest": "^22.4.3",
+        "nodemon": "^2.0.6"
+    },
+    "jest": {
+        "testURL": "http://localhost"
+    }
+}
