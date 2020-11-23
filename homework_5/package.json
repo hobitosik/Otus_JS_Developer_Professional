@@ -1,0 +1,25 @@
+{
+  "name": "homework_5",
+  "version": "1.0.0",
+  "description": "Homework of JS Professional courses in school 'Otus'",
+  "main": "tree.js",
+  "scripts": {
+    "tree": "node tree.js ./src/foo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hobitosik/Otus_JS_Developer_Professional.git"
+  },
+  "keywords": [
+    "node",
+    "node.js",
+    "folders",
+    "tree"
+  ],
+  "author": "El'vina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hobitosik/Otus_JS_Developer_Professional/issues"
+  },
+  "homepage": "https://github.com/hobitosik/Otus_JS_Developer_Professional#readme"
+}
