@@ -1,0 +1,112 @@
+mutation addProduct($nameProduct: String!, $priceProduct: Float!) {
+  createProduct(input: { name: $nameProduct, price: $priceProduct }) {
+    id
+    name
+    price
+  }
+}
+
+mutation editProduct(
+  $id: ID!
+  $nameProduct: String
+  $priceProduct: Float
+  $category: Category
+  $description: String
+  $status: Status
+) {
+  updateProduct(
+    id: $id
+    input: {
+      name: $nameProduct
+      price: $priceProduct
+      category: $category
+      description: $description
+      status: $status
+    }
+  ) {
+    name
+    price
+    category
+    description
+    status
+  }
+}
+
+query getProducts {
+  products {
+    id
+    name
+    price
+    category
+    status
+  }
+}
+
+query getProduct($id: ID!) {
+  product(id: $id) {
+    id
+    name
+    price
+    category
+  }
+}
+
+query getProductsByCategory($category: Category!) {
+  productsByCategory(category: $category) {
+    id
+    name
+    price
+  }
+}
+
+query getProductsByStatus($status: Status!) {
+  productsByStatus(status: $status) {
+    id
+    name
+    price
+  }
+}
+
+mutation addUser {
+  createUser(input: { name: "Jhon", email: "jhon.@big3.ru" }) {
+    id
+    name
+  }
+}
+
+query getUsers {
+  users {
+    id
+    name
+    orders {
+      id
+      user_id
+    }
+  }
+}
+
+mutation addOrder($user_id: ID!, $product_id: ID!, $quantity: Int!) {
+  createOrder(
+    input: {
+      user_id: $user_id
+      items: [{ product_id: $product_id, quantity: $quantity }]
+    }
+  ) {
+    id
+    items {
+      product_id
+      quantity
+    }
+  }
+}
+
+query getOrders {
+  orders {
+    id
+    user_id
+    items {
+      product_id
+      quantity
+    }
+  }
+}

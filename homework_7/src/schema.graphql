@@ -1,0 +1,92 @@
+type Query {
+    users: [User!]!
+    user(id: ID!): User!
+
+    products: [Product!]!
+    product(id: ID!): Product!
+    productsByCategory(category: Category!): [Product!]!
+    productsByStatus(status: Status!): [Product!]!
+
+    orders: [Order!]!
+    order(id: ID!): Order!
+
+    cartItems: [CartItem!]!
+}
+
+type Mutation {
+    createUser(input: UserInput!): User
+    updateUser(id: ID!, input: UserInput!): User
+    deleteUser(id: ID!): ID
+
+    createProduct(input: ProductInput!): Product
+    updateProduct(id: ID!, input: ProductInput!): Product
+    deleteProduct(id: ID!): ID
+
+    createOrder(input: OrderInput!): Order
+    updateOrder(id: ID!, input: OrderInput!): Order
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    orders: [Order]
+}
+input UserInput {
+    name: String
+    email: String
+    orders: [OrderInput]
+}
+
+type Product {
+    id: ID!
+    name: String!
+    price: Float!
+    category: Category
+    description: String
+    status: Status
+    images: [String!]
+}
+input ProductInput {
+    name: String
+    price: Float
+    category: Category
+    description: String
+    status: Status
+    images: [String!]
+}
+
+type Order {
+    id: ID!
+    items: [CartItem!]
+    user_id: ID!
+}
+input OrderInput {
+    items: [CartItemInput!]
+    user_id: ID!
+}
+
+type CartItem {
+    product_id: ID!
+    quantity: Int!
+}
+input CartItemInput {
+    product_id: ID!
+    quantity: Int!
+}
+
+enum Status {
+    SALE
+    NO_STOCK
+    NEW
+}
+
+enum Category {
+    KITCHEN
+    HOUSE
+    HEALTH
+    COMPUTER
+    SMARTPHONE
+    TOOL
+    ACCESSORY
+}

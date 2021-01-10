@@ -1,0 +1,34 @@
+{
+  "name": "homework_7",
+  "version": "1.0.0",
+  "description": "Homework of JS Professional courses in school 'Otus'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hobitosik/Otus_JS_Developer_Professional.git"
+  },
+  "keywords": [
+    "graphQL"
+  ],
+  "author": "El'vina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hobitosik/Otus_JS_Developer_Professional/issues"
+  },
+  "homepage": "https://github.com/hobitosik/Otus_JS_Developer_Professional#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.4.0",
+    "graphql-import": "^1.0.2",
+    "mongoose": "^5.11.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
