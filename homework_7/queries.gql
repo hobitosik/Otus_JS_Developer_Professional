@@ -1,5 +1,5 @@
 mutation addProduct($nameProduct: String!, $priceProduct: Float!) {
-  createProduct(input: { name: $nameProduct, price: $priceProduct }) {
+  createProduct( name: $nameProduct, price: $priceProduct ){
     id
     name
     price
@@ -68,7 +68,7 @@ query getProductsByStatus($status: Status!) {
 }
 
 mutation addUser {
-  createUser(input: { name: "Jhon", email: "jhon.@big3.ru" }) {
+  createUser( name: "Jhon", email: "jhon.@big3.ru" ){
     id
     name
   }
@@ -86,11 +86,9 @@ query getUsers {
 }
 
 mutation addOrder($user_id: ID!, $product_id: ID!, $quantity: Int!) {
-  createOrder(
-    input: {
-      user_id: $user_id
-      items: [{ product_id: $product_id, quantity: $quantity }]
-    }
+  createOrder(    
+    user_id: $user_id
+    items: [{ product_id: $product_id, quantity: $quantity }]
   ) {
     id
     items {

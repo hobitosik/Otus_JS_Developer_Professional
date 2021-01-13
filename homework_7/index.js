@@ -1,11 +1,8 @@
 const express = require('express')
 const { graphqlHTTP } = require('express-graphql')
-// const depthLimit = require('graphql-depth-limit')
-const { buildSchema } = require('graphql')
-const { importSchema } = require('graphql-import')
+const depthLimit = require('graphql-depth-limit')
 
-const schema = buildSchema(importSchema('**/*.graphql'))
-const resolvers = require('./src/resolvers');
+const schema = require('./src/schema');
 
 const mongoose = require('mongoose')
 const mongooseConnectOptions = {
@@ -18,9 +15,8 @@ const port = 3000
 app.use( '/', 
     graphqlHTTP({
         schema: schema,
-        // validationRules: [depthLimit(2)],
+        validationRules: [depthLimit(4)],
         graphiql: true,
-        rootValue: resolvers,
     })
 )
 
