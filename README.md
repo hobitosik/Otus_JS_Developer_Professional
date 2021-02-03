@@ -9,3 +9,4 @@ Homework of JS Professional courses in school "Otus"
 5. [ДЗ: Вывод списка файлов и папок файловой системы](https://github.com/hobitosik/Otus_JS_Developer_Professional/tree/main/homework_5)
 6. [ДЗ*: Работа с потоками в NodeJS*](https://github.com/hobitosik/Otus_JS_Developer_Professional/tree/main/homework_6)
 7. [ДЗ: GraphQL для примера веб-приложения e-commerce shop](https://github.com/hobitosik/Otus_JS_Developer_Professional/tree/main/homework_7)
+8. [ДЗ: Структура приложения для запоминания иностранных слов](https://github.com/hobitosik/Otus_JS_Developer_Professional/tree/main/homework_8-9)

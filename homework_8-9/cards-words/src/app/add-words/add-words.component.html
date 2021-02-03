@@ -1,0 +1,36 @@
+<form class="cw-form" style="--cw-form-width: 500px"
+    [formGroup]="addWordsForm"
+>
+    <div class="cw-form-control">
+        <label for="new-word" class="cw-form-control__label">Слово на русском</label>
+        <textarea id="new-word" class="cw-form-control__field" placeholder="Новое слово..."
+            formControlName="nativeLangWords"
+        ></textarea>
+        <small class="cw-form-control__note"
+            *ngIf="addWordsForm.get('nativeLangWords').invalid"
+        >
+            Поле обязательно для заполнения
+        </small>
+    </div>
+    <div class="cw-form-control">
+        <label class="cw-form-control__label">Переводится на '{{ state.lang | term }}' как...</label>
+        <textarea class="cw-form-control__field"
+            formControlName="learningLangWords"
+        ></textarea>
+    </div>
+    <div class="cw-flex-j-sb">
+        <button type="button" class="cw-form__btn cw-form__btn_secondary"
+            (click)="reset()"
+        >Сбросить</button>
+        <button type="button" class="cw-form__btn"
+            [disabled]="addWordsForm.invalid"
+            (click)="addStorage()"
+        >Добавить в словарь</button>
+    </div>
+    
+    <p class="cw-note cw-note_done"
+        *ngIf="savedToDict.value"
+    >
+        Слово / слова добавлено в словарь!
+    </p>
+</form>

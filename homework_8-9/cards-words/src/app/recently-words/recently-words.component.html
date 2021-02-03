@@ -1,0 +1,9 @@
+<h2>Недавно добавленные слова</h2>
+
+<ul class="cw-list">
+    <li class="cw-flex-j-sb"
+        *ngFor="let word of recentlyWords.slice().reverse() let i = index;"
+    >
+        <span>{{ word.learning }}</span>  <span>{{ word.native }}</span>
+    </li>
+</ul>

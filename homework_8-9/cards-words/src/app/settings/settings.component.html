@@ -1,0 +1,51 @@
+<h2>Настройки</h2>
+<form class="cw-form">
+    <div class="cw-form-control">
+        <label for="lang-settings" class="cw-form-control__label">Язык, который будем учить</label>
+        <select id="lang-settings" class="cw-form-control__field"
+            [(ngModel)]="state.lang"
+            name="lang"
+            (input)="settingsIsSave = false"
+        >
+            <ng-container *ngFor="let lang of langs">
+                <option [value]="lang">{{ lang | term }}</option>
+            </ng-container>
+        </select>
+    </div>
+    <div class="cw-form-control">
+        <label for="words-settings" class="cw-form-control__label">Количество слов в упражнении</label>
+        <input id="words-settings" type="number" min="0" class="cw-form-control__field"
+            [(ngModel)]="state.wordsAmount"
+            name="wordsAmount"
+            (input)="settingsIsSave = false"
+        />
+    </div>
+    <div class="cw-form-control">
+        <label for="minutes-settings" class="cw-form-control__label">Отводимое на упражнение время</label>
+        <div class="cw-form-control__field cw-flex-j-sb cw-flex-ai-c">
+            Часов: 
+            <input type="number" min="0" max="24" step="1"
+                [(ngModel)]="state.time.hours"
+                name="hours"
+                (input)="settingsIsSave = false"
+            />
+            Минут: 
+            <input id="minutes-settings" type="number" min="0" max="59" step="1"
+                [(ngModel)]="state.time.minutes"
+                name="minutes"
+                (input)="settingsIsSave = false"
+            />
+        </div>
+    </div>
+    <div class="cw-flex-j-sb">
+        <button type="button" class="cw-form__btn cw-form__btn_secondary"
+            (click)="state.setStateDefault(); settingsIsSave = true"
+        >Сбросить</button>
+        <button type="button" class="cw-form__btn"
+            (click)="submit(); settingsIsSave = true"
+        >Сохранить</button>
+    </div>
+    <p class="cw-note cw-note_done" *ngIf="settingsIsSave">
+        Ваши настройки сохранены!
+    </p>
+</form>

@@ -1,0 +1,173 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,300i,400,400i,500,500i,700,700i,900|Roboto+Mono:300,400,500,700|family=Roboto+Slab:400&subset=cyrillic-ext,latin-ext');
+
+/**** LAYOUT ****/
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    background: #EDEDED;
+    padding: 10px;
+}
+.cw-main {
+    width: 100%;
+    padding: 0 20px;
+}
+.cw-aside {
+    width: 30%;
+    padding: 0 20px
+}
+
+/**** HELPERS ****/
+.cw-flex {
+    display: flex;
+    
+    &-j-sb {
+        display: flex;
+        justify-content: space-between;
+    }
+    &-j-e {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &-ai-c {
+        align-items: center;
+    }
+}
+
+/**** FORM ****/
+.cw-form {
+    width: var(--cw-form-width, 250px);
+
+    &-control {
+        margin: 0 0 20px;
+
+        &__label {
+            display: block;
+            margin: 0 0 5px;
+        }
+
+        &__field {
+            width: 250px;
+            height: 34px;
+
+            input {
+                height: 34px;
+            }
+        }
+        &__note {
+            color: red
+        }
+        
+        textarea.cw-form-control__field {
+            height: 68px;
+            width: 100%;
+            resize: vertical;
+        }
+    }
+    &__btn {
+        margin: var(--cw-btn-margin, 0);
+        padding: 5px 10px;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.571429;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle; 
+        border: 0;
+        border-radius: 3px;
+        transition: color .2s linear, width .2s linear, background-color .2s linear;
+        -webkit-font-smoothing: subpixel-antialiased;
+        text-decoration: none;
+        cursor: pointer;
+    
+        background: #1772C6;
+        color: white;
+
+        &_secondary {
+            background: #C4C4C4;
+            color: #343434;
+        }
+
+        &:disabled {
+            opacity: .6;
+            cursor: no-drop;
+        }
+    }
+}
+
+/**** NAVIGATION ****/
+.cw-nav {
+    width: 100%;
+    border-bottom: 2px solid #C4C4C4;
+
+    &__item {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 10px 15px;
+        border-radius: 5px 5px 0 0;
+        background: white;
+        color: #202020;
+        text-decoration: none;
+
+        &--active {
+            background: #1772C6;
+            color: white;
+        }
+    }
+}
+
+/**** tablo ****/
+.cw-tablo {
+    height: 100px;
+    padding: 10px;
+    margin: 0 0 10px;
+    background: darkcyan;
+    text-align: center;
+    line-height: 80px;
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+/**** blink ****/
+.cw-blink {
+    -webkit-animation: cw-blink 3s linear infinite;
+    animation: cw-blink 3s linear infinite;
+}
+@-webkit-keyframes cw-blink {
+    0% { color: rgba(34, 34, 34, 1); }
+    50% { color: rgba(34, 34, 34, 0); }
+    100% { color: rgba(34, 34, 34, 1); }
+}
+@keyframes cw-blink {
+    0% { color: rgba(34, 34, 34, 1); }
+    50% { color: rgba(34, 34, 34, 0); }
+    100% { color: rgba(34, 34, 34, 1); }
+}
+
+/**** Notes ****/
+.cw-note {
+    margin-top: 15px;
+    font-size: 16px;
+
+    &_done {
+        color: green;
+    }
+}
+
+/**** List ****/
+.cw-list {
+    overflow: auto;
+    max-height: 350px;
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+
+    & > * {
+        min-height: 34px;
+        border-bottom: 1px solid grey;
+        line-height: 34px;
+    }
+}

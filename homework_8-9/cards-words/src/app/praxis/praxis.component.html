@@ -1,0 +1,59 @@
+<div class="cw-flex">
+    <main class="cw-main">
+        <h2>Проверь свои знания! {{ state.lang | term  }}</h2>
+        <div style="--cw-btn-margin: 10px 0">
+            <button type="button" class="cw-form__btn"
+                *ngIf="!timer.timerStarted"
+                (click)="nextWord(); timer.start()"
+            >Начать</button>
+            <button type="button" class="cw-form__btn"
+                *ngIf="timer.timerStarted"
+                (click)="timer.stop()"
+            >Завершить</button>
+        </div>
+
+        <ng-container *ngIf="timer.timerStarted">
+            <div class="cw-tablo"
+                *ngIf="learningLangWord.value"
+            >{{ learningLangWord.value }}</div>
+
+            <form class="cw-form" style="--cw-form-width: 100%"
+                #form="ngForm"
+            >
+                <div class="cw-form-control">
+                    <textarea class="cw-form-control__field" placeholder="Перевод..."
+                        ngModel
+                        required
+                        name="translatedWord"
+                    ></textarea>
+                    <ng-container *ngIf="formSubmitted">
+                        <small class="cw-form-control__note"
+                            *ngIf="!isTranslatedWord"
+                        >Неверный перевод</small>
+                        <small class="cw-note cw-note_done"
+                            *ngIf="isTranslatedWord"
+                        >Правильно!</small>
+                    </ng-container>
+                </div>
+                <div class="cw-flex-j-sb">
+                    <button type="submit" class="cw-form__btn"
+                        (click)="submitAnswer(form)"
+                    >Ответить</button>
+                    <button type="button" class="cw-form__btn"
+                        *ngIf="counterWord != state.wordsAmount && formSubmitted"
+                        [disabled]="form.invalid"
+                        (click)="nextWord(); reset(form)"
+                    >Дальше</button>
+                </div>
+            </form>
+            <div class="cw-note">Количество ошибок: {{ errCounter }}</div>
+        </ng-container>
+    </main>
+    <aside class="cw-aside">
+        <cw-timer
+            #timer
+            [hours]="state.time.hours"
+            [minutes]="state.time.minutes"
+        ></cw-timer>
+    </aside>
+</div>

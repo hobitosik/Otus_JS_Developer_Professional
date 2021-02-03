@@ -1,0 +1,19 @@
+<h2>Таймер</h2>
+<span class="cw-timer">{{ hours }} ч : {{ minutes }} мин : {{ seconds }} сек</span>
+
+<div style="--cw-btn-margin: 10px 10px 0 0">
+    <button type="button" class="cw-form__btn"
+        [disabled]="timerStarted"
+        (click)="start()"
+    >&#9658;</button>
+    <button type="button" class="cw-form__btn"
+        (click)="pause()"
+    >&#10074;&#10074;</button>
+    <button type="button" class="cw-form__btn"
+        [disabled]="!timerStarted"
+        (click)="stop()"
+    >&#9724;</button>
+</div>
+<p class="cw-blink cw-note" 
+    *ngIf="seconds === 0 && minutes === 0 && hours === 0"
+><strong>Ваше время истекло!</strong></p>
