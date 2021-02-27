@@ -26,7 +26,9 @@ export class TranslateService {
     constructor(
         private http: HttpClient,
         private state: StateService
-    ){ console.log('[TRANSLATE][INIT]', this) }
+    ){ 
+        console.log('[TRANSLATE][INIT]', this)
+    }
 
     public getTranslateWord$( word:string ): Observable<string>{
         return this.http.get(

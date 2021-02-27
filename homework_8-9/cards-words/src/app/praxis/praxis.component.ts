@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { StateService } from '../services/state.service';
 import { StorageService } from '../services/storage.service';
@@ -11,7 +12,7 @@ import { IWord } from '../types';
 })
 export class PraxisComponent implements OnInit {
 
-    public learningLangWord: BehaviorSubject<string> = new BehaviorSubject('');
+    public learningLangWord$: BehaviorSubject<string> = new BehaviorSubject('');
     public isTranslatedWord = true;
     public formSubmitted = false;
     public errCounter = 0;
@@ -26,10 +27,10 @@ export class PraxisComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public submitAnswer( form ){
+    public submitAnswer( form: NgForm ){
         let wordAnswer:string = form.value.translatedWord.toLowerCase();
         let wordFromDict:IWord = this.dictanory.find( word=>
-            word.learning == this.learningLangWord.value
+            word.learning == this.learningLangWord$.value
         )
         if( wordFromDict.native == wordAnswer ){
             this.isTranslatedWord = true;
@@ -42,14 +43,14 @@ export class PraxisComponent implements OnInit {
     public nextWord(){
         if( this.counterWord < this.state.wordsAmount ){
             let randomWord:string = this.dictanory[ this.getRandomIntInclusive( 0, this.dictanory.length - 1 ) ].learning;
-            this.learningLangWord.next( randomWord );
+            this.learningLangWord$.next( randomWord );
             this.counterWord ++;
             
             console.log('nextWord', randomWord );
         }
     }
-    public reset( form ){
-        form.reset();
+    public reset( form: NgForm ){
+        form.resetForm();
         this.isTranslatedWord = true;
         this.formSubmitted = !this.formSubmitted
     }

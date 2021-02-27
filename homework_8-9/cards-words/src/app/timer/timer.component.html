@@ -2,14 +2,14 @@
 <span class="cw-timer">{{ hours }} ч : {{ minutes }} мин : {{ seconds }} сек</span>
 
 <div style="--cw-btn-margin: 10px 10px 0 0">
-    <button type="button" class="cw-form__btn"
+    <button type="button" class="cw-form__btn cw-form__btn_start"
         [disabled]="timerStarted"
         (click)="start()"
     >&#9658;</button>
     <button type="button" class="cw-form__btn"
         (click)="pause()"
     >&#10074;&#10074;</button>
-    <button type="button" class="cw-form__btn"
+    <button type="button" class="cw-form__btn cw-form__btn_stop"
         [disabled]="!timerStarted"
         (click)="stop()"
     >&#9724;</button>

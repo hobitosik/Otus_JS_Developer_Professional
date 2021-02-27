@@ -2,11 +2,11 @@
     <main class="cw-main">
         <h2>Проверь свои знания! {{ state.lang | term  }}</h2>
         <div style="--cw-btn-margin: 10px 0">
-            <button type="button" class="cw-form__btn"
+            <button type="button" class="cw-form__btn cw-btn_start"
                 *ngIf="!timer.timerStarted"
                 (click)="nextWord(); timer.start()"
             >Начать</button>
-            <button type="button" class="cw-form__btn"
+            <button type="button" class="cw-form__btn cw-btn_stop"
                 *ngIf="timer.timerStarted"
                 (click)="timer.stop()"
             >Завершить</button>
@@ -14,8 +14,8 @@
 
         <ng-container *ngIf="timer.timerStarted">
             <div class="cw-tablo"
-                *ngIf="learningLangWord.value"
-            >{{ learningLangWord.value }}</div>
+                *ngIf="learningLangWord$.value"
+            >{{ learningLangWord$.value }}</div>
 
             <form class="cw-form" style="--cw-form-width: 100%"
                 #form="ngForm"

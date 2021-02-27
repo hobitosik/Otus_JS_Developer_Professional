@@ -4,7 +4,7 @@ const TERM_DCT = {
     'en': 'Английский',
     'ru': 'Русский',
     'de': 'Немецкий',
-    'fr': 'Франзуский'
+    'fr': 'Французский'
 }
 
 @Injectable({
@@ -17,7 +17,8 @@ export class TermService {
         let term = null;
         if( override && typeof override === 'object' ) term = override[code];
         if( !term && this.currentOverride ) term = this.currentOverride[code];
-        if( !term ) term = TERM_DCT[code] || ( typeof override === 'string' ? override : null );
+        if( !term )
+            term = TERM_DCT[code] || ( typeof override === 'string' ? override : null );
         return term;
     }
 }

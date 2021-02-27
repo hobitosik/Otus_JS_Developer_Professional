@@ -22,8 +22,8 @@ export class TimerComponent implements OnInit {
         this.initialMinutes = this.minutes;
     }
 
-    public start(){        
-        this.timerStarted = !this.timerStarted;
+    public start(){
+        this.timerStarted = true;
         if( this.hours == 0 && this.minutes == 0 && this.seconds == 0 ){
             this.hours = this.initialHours;
             this.minutes = this.initialMinutes;
@@ -53,6 +53,6 @@ export class TimerComponent implements OnInit {
         this.hours = 0;
         this.minutes = 0;
         this.seconds = 0;
-        this.timerStarted = !this.timerStarted;
+        this.timerStarted = false;
     }
 }

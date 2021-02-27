@@ -12,7 +12,7 @@ import { IWord } from '../types';
 export class AppService{
 
     public dictanory: IWord[] = this.storage.getDictFromLS( `${this.state.lang}_Dict` );
-    public dictanory$: BehaviorSubject<IWord[]> = new BehaviorSubject(this.dictanory);
+    public dictanory$: BehaviorSubject<IWord[]> = new BehaviorSubject( this.dictanory );
 
     constructor(
         private translateSrv: TranslateService,

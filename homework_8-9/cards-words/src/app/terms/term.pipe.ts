@@ -9,8 +9,8 @@ export class TermPipe implements PipeTransform {
         private termSe: TermService
     ){ }
 
-    transform(code: string, override?: any): any {
-        return this.termSe.getTerm(code, override) || code;
+    transform( code: string, override?: any ): any {
+        return this.termSe.getTerm( code, override ) || code;
     }
 
 }

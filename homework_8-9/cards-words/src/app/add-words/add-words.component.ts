@@ -3,7 +3,7 @@ import { AppService } from '../services/app.service';
 import { StateService } from '../services/state.service';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AddWordsComponent implements OnInit {
 
     addWordsForm: FormGroup;
-    savedToDict: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    savedToDict$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
     constructor(
         public state: StateService,
@@ -29,7 +29,6 @@ export class AddWordsComponent implements OnInit {
         this.reset();
         this.addWordsForm.get('nativeLangWords').valueChanges.pipe(
             debounceTime(500),
-            // distinctUntilChanged()
         ).subscribe(( word:string )=> {
             this.appSrv.sliceSentence$( word ).subscribe( result=>{
                 console.log('[result]', result )
@@ -41,12 +40,12 @@ export class AddWordsComponent implements OnInit {
     public addStorage(){
         console.log( 'addStorage', this.addWordsForm.get('learningLangWords').value );
         this.appSrv.saveToDct( this.addWordsForm.get('nativeLangWords').value, this.addWordsForm.get('learningLangWords').value );
-        this.savedToDict.next( true )
+        this.savedToDict$.next( true )
     }
 
     public reset(){
         this.addWordsForm.reset();
-        this.savedToDict.next( false )
+        this.savedToDict$.next( false );
     }
 
     private _createForm(){
